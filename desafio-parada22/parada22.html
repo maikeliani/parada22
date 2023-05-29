@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parada 22</title>
+    <style>
+        body{
+            background-color: rgb(128, 128, 173);
+        }
+        .main{
+            margin: auto;
+            height: 100%;
+            width: 50%;
+            text-align: center;
+            margin-top: 5%;
+            border: 1px solid black;
+            padding-bottom: 5%;
+        }
+        button{
+            color: white;
+            width: 150px;
+            height: 150px;
+            padding: 20px;
+            font-size: 80px;
+            display: inline-flex;
+            justify-content: space-around;
+            cursor: pointer;
+            border: 3px black solid;
+            background-color: darkcyan;
+        }
+
+        #botao_cor{
+            width: 100px;
+            height: 50px;
+            font-size: 15px;   
+            padding: 0;               
+            align-items: center;      
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="main">
+    <h1>Deseja alterar a cor de fundo?</h1>
+    <p>Digite o nome de uma cor (EM INGLÊS)  e clique no botão para alterar a cor da página:</p>
+    <input type="text" id="cor" placeholder="DIGITE UMA COR">
+    <button id="botao_cor" onclick="alterarCor()">Alterar Cor</button>
+        <h1>QUIZ</h1>
+        <h2>CADA BOTÃO É UMA CATEGORIA ESPECÍFICA</h2>
+        <button id="b1" value="1" onclick="myFunction()">A</button>
+        <button id="b2" value="2" onclick="myFunction()">B</button>
+        <button id="b3" value="3" onclick="myFunction()">C</button>
+    </div>
+    <script>
+
+    function gerarNumeroAleatorio() {
+    return Math.floor(Math.random() * 3) + 1;
+    }
+
+    function alterarCor() {
+    var cor = document.getElementById("cor").value;
+    document.body.style.backgroundColor = cor;
+    }
+
+        let opcao =10;
+        let resposta;
+        let pontuacao =0;
+
+        function myFunction() {            
+        opcao = gerarNumeroAleatorio();              
+        quiz(opcao);
+        }
+
+        function quiz(opcao_escolhida){           
+
+            if(opcao_escolhida == 1)  {
+                    resposta = prompt("A baleia é uma mamífero. Verdadeiro ou Falso?").toLowerCase();
+                    if(resposta == "verdadeiro"){
+                        pontuacao++
+                    }else{
+                        alert("resposta incorreta, ...");
+                    }
+                    resposta = prompt("O morcego é uma mamifero.Verdadeiro ou falso?").toLowerCase();
+                    if(resposta == "verdadeiro"){
+                        pontuacao++;
+                    }else{
+                        alert("resposta incorreta, ...");
+                    }
+                    resposta = prompt("A girafa é o maior réptil do mundo. Verdadeiro ou Falso?").toLowerCase();
+                    if(resposta == "falso"){
+                        pontuacao++;
+                    }else{
+                        alert("resposta incorreta, ...");
+                    }
+                    alert(`vc fez ${pontuacao} pontos`);
+                    pontuacao = 0
+            }  
+
+            else if(opcao_escolhida == 2)
+            {
+                resposta = prompt("A Argentina foi campeã da copa do mundo de 2022. Verdadeiro ou Falso?").toLowerCase()
+                if(resposta == "verdadeiro"){
+                    pontuacao++;
+                }else{
+                    alert("resposta incorreta, ...")
+                }
+                resposta = prompt("a Espanha foi finalista na Copa do mundo de 2022. Verdadeiro ou Falso?").toLowerCase()
+                if(resposta == "falso"){
+                    pontuacao++;
+                }else{
+                    alert("resposta incorreta, ...")
+                }
+                resposta = prompt("O Brasil foi campeão da Copa do Mundo de 2022. Verdadeiro ou Falso?").toLowerCase()
+                if(resposta == "falso"){
+                    pontuacao++;
+                }else{
+                    alert("resposta incorreta, ...");
+                }
+                alert(`vc fez ${pontuacao} pontos`);
+                pontuacao = 0;
+            }          
+                    
+            else if(opcao_escolhida == 3)
+            {                
+                resposta = prompt("A Russia é o maior país do mundo. Verdadeiro ou Falso?").toLowerCase();
+                if(resposta == "verdadeiro"){
+                    pontuacao++;
+                }else{
+                    alert("resposta incorreta, ...");
+                }
+                resposta = prompt("A Índia é o país mais populoso do mundo. Verdadeiro ou Falso?").toLowerCase();
+                if(resposta == "verdadeiro"){
+                    pontuacao++;
+                }else{
+                    alert("resposta incorreta, ...");
+                }
+                resposta = prompt("A Suécia é o país com melhor qualidade de vida. Verdadeiro ou Falso?").toLowerCase();
+                if(resposta == "falso"){
+                    pontuacao++;
+                }else{
+                    alert("resposta incorreta, ...");
+                }
+                alert(`vc fez ${pontuacao} pontos`);
+                pontuacao = 0;
+            }
+            else{
+                alert('digite uma opcao valida');
+            }       
+        }                         
+    </script>
+</body>
+</html>
